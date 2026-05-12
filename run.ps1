@@ -1,12 +1,12 @@
 $IMAGE_NAME = "gcatsl-repo"
 $PLATFORM = "linux/amd64"
 
-New-Item -ItemType Directory -Force -Path output2 | Out-Null
+New-Item -ItemType Directory -Force -Path output | Out-Null
 
 docker build --platform $PLATFORM -t $IMAGE_NAME .
 
 docker run --platform $PLATFORM -it `
-  -v "${PWD}/output:/app/output2" `
+  -v "${PWD}/output:/app/output" `
   $IMAGE_NAME `
   python source/main.py `
     --n_epoch 600 `
@@ -18,5 +18,5 @@ docker run --platform $PLATFORM -it `
     --weight_decay 0.0001 `
     --dropout 0.7 `
     --input_dir data/toy_examples/ `
-    --output_dir outpu2t/ `
-    --log_dir output2/
+    --output_dir output/ `
+    --log_dir output/
