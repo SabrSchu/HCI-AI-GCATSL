@@ -1,3 +1,33 @@
+# GCATSL
+Reproduction of:
+
+Long, Wu, Liu, Zheng, Kwoh, Chen, Luo, Li (2021)\
+*Graph contextualized attention network for predicting synthetic lethality in human cancers*
+-----
+## 📁 Overview
+This repository contains a reproduction of the experiments from the paper using the original codebase: 
+https://github.com/lichenbiostat/GCATSL
+-----
+## ⚙️ Reproduction Setup
+This repository is a reproduction of the original GCATSL project. The original project has been adapted to facilitate reproducible execution in a Docker environment and to collect resource consumption measurements.
+
+The following additions were made for the reproduction:
+
+- Two run scripts, `run.ps1` and `run.sh` are provided to build/start the Docker container and execute the project with the required parameters.
+- On Windows, an additional `monitor.ps1` script is started in parallel with the experiment. It monitors resource consumption during execution and stores the collected measurements in `output/resource_measurements.csv`.
+
+### Prerequisites
+- Docker must be installed and running
+- Windows users must have PowerShell available
+- Unzip the file `./data/toy_examples/global interaction matrix.rar` in directory `./data/toy_examples/`
+
+### Running the Reproduction
+Use the provided run script to start the experiment. On Windows, the resource monitoring script is started automatically
+in parallel with the experiment.
+
+After execution, the collected resource measurements and experiment results can be found in the folder `output/`
+
+-----
 # GCATSL: Graph Contextualized Attention Network for Predicting Synthetic Lethality in Human Cancers
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4522679.svg)](https://zenodo.org/record/4522679#.YCKCi-gzaUk) 
